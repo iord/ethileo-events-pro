@@ -1,0 +1,83 @@
+/**
+ * Ethileo Events Pro - Admin Styles
+ *
+ * @package Ethileo\EventsPro
+ */
+
+:root {
+    --ethileo-primary: #6366f1;
+    --ethileo-secondary: #8b5cf6;
+    --ethileo-success: #10b981;
+    --ethileo-danger: #ef4444;
+    --ethileo-warning: #f59e0b;
+    --ethileo-info: #3b82f6;
+}
+
+.ethileo-events-pro-admin {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.ethileo-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.ethileo-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--ethileo-primary);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.ethileo-button:hover {
+    background: var(--ethileo-secondary);
+    transform: translateY(-1px);
+}
+
+.ethileo-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ethileo-table th,
+.ethileo-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.ethileo-table th {
+    background: #f9fafb;
+    font-weight: 600;
+}
+
+.ethileo-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ethileo-badge-success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.ethileo-badge-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.ethileo-badge-danger {
+    background: #fee2e2;
+    color: #991b1b;
+}

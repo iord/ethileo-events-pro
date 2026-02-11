@@ -1,0 +1,86 @@
+/**
+ * Ethileo Events Pro - Frontend Styles
+ *
+ * @package Ethileo\EventsPro
+ */
+
+.ethileo-event {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.ethileo-event-header {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.ethileo-event-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ethileo-event-date {
+    font-size: 24px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+
+.ethileo-rsvp-form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ethileo-form-group {
+    margin-bottom: 20px;
+}
+
+.ethileo-form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.ethileo-form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.ethileo-form-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.ethileo-photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.ethileo-photo-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.ethileo-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.ethileo-photo-item:hover img {
+    transform: scale(1.05);
+}
