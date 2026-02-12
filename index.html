@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethileo Events Pro - Professional Event Management</title>
-    <meta name="description" content="Enterprise-grade WordPress event management plugin with Clean Architecture">
+    <title>Home – Events</title>
+    <meta name="description" content="The modern way to plan unforgettable events! Everything you need for perfect events, all in one platform.">
     <style>
         * {
             margin: 0;
@@ -12,42 +12,59 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #9C1B5C;
+            --mint-accent: #A8E6CF;
+            --text-dark: #2d2d2d;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+            color: var(--text-dark);
         }
 
+        /* Navigation */
         .navbar {
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
             display: flex;
+            gap: 2.5rem;
             align-items: center;
-            gap: 0.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
         }
 
         .nav-buttons {
@@ -56,66 +73,68 @@
         }
 
         .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
+            padding: 0.75rem 1.8rem;
             border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
             text-decoration: none;
-            transition: all 0.3s ease;
             font-weight: 600;
+            transition: all 0.3s ease;
             display: inline-block;
         }
 
         .btn-login {
             background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
         }
 
         .btn-login:hover {
-            background: #667eea;
+            background: var(--primary-color);
             color: white;
-            transform: translateY(-2px);
         }
 
         .btn-signup {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--primary-color);
             color: white;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            border: 2px solid var(--primary-color);
         }
 
         .btn-signup:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            background: #7a1548;
+            border-color: #7a1548;
         }
 
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 6rem 5% 3rem;
-            color: white;
             text-align: center;
+            color: white;
             position: relative;
+            padding: 120px 5% 80px;
             overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: moveBackground 20s linear infinite;
-        }
-
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(156, 27, 92, 0.85);
+            z-index: -1;
         }
 
         .hero-content {
@@ -124,174 +143,255 @@
             z-index: 1;
         }
 
-        .status-badge {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            animation: fadeInUp 0.8s ease both;
-            backdrop-filter: blur(10px);
-        }
-
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease 0.2s both;
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 0;
             opacity: 0.95;
-            animation: fadeInUp 0.8s ease 0.4s both;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            animation: fadeInUp 0.8s ease 0.6s both;
-            flex-wrap: wrap;
-        }
-
-        .btn-large {
-            padding: 1.2rem 3rem;
-            font-size: 1.15rem;
-        }
-
-        .btn-white {
+        /* Everything You Need Section */
+        .features-intro {
+            padding: 80px 5%;
             background: white;
-            color: #667eea;
-            font-weight: 700;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-outline {
-            background: rgba(255,255,255,0.15);
-            color: white;
-            border: 2px solid white;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.25);
-        }
-
-        .features {
-            padding: 6rem 5%;
-            background: #f8f9fa;
-        }
-
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            text-align: center;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
-            font-weight: 800;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #6b7280;
-            margin-bottom: 4rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .feature-card {
-            padding: 2.5rem;
-            background: white;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            border: 1px solid #e5e7eb;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: #667eea;
-        }
-
-        .feature-icon {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: #1f2937;
+            color: var(--text-dark);
             font-weight: 700;
         }
 
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-weight: 600;
+        }
+
+        .features-description {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .features-description strong {
+            color: var(--text-dark);
+        }
+
+        .feature-highlights {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .feature-highlight {
+            text-align: center;
+        }
+
+        .feature-highlight h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-top: 1rem;
+        }
+
+        /* Detailed Features */
+        .detailed-features {
+            padding: 80px 5%;
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .feature-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card h4::before {
+            content: '✦ ';
+            color: var(--mint-accent);
+            margin-right: 0.5rem;
+        }
+
         .feature-card p {
-            color: #6b7280;
-            line-height: 1.7;
+            color: var(--text-light);
+            line-height: 1.8;
             font-size: 1.05rem;
         }
 
-        .tech-stack {
-            padding: 6rem 5%;
+        .feature-card strong {
+            color: var(--text-dark);
+        }
+
+        /* 3 Steps Section */
+        .steps-section {
+            padding: 80px 5%;
             background: white;
+            text-align: center;
         }
 
-        .tech-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            max-width: 800px;
-            margin: 0 auto;
+        .steps-container {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
         }
 
-        .tech-badge {
-            padding: 0.75rem 1.5rem;
-            background: #f3f4f6;
-            border-radius: 10px;
-            font-weight: 600;
-            color: #4b5563;
-            font-size: 0.95rem;
+        .step-card {
+            padding: 2rem;
         }
 
-        footer {
-            padding: 3rem 5%;
-            background: #1f2937;
+        .step-number {
+            font-size: 3rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .step-description {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Event Types */
+        .event-types {
+            padding: 80px 5%;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .event-types-grid {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-type-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .event-type-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .event-type-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #7a1548 100%);
             color: white;
             text-align: center;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .btn-cta {
+            padding: 1.2rem 3rem;
+            background: white;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: none;
+        }
+
+        .btn-cta:hover {
+            background: var(--mint-accent);
+            color: var(--text-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h5 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--mint-accent);
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            display: block;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--mint-accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
         }
 
         @media (max-width: 768px) {
@@ -299,150 +399,178 @@
                 font-size: 2.5rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .nav-buttons {
-                gap: 0.5rem;
-            }
-
-            .btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
+            .nav-links {
+                display: none;
             }
 
             .section-title {
                 font-size: 2rem;
             }
 
-            .features-grid {
+            .features-grid, .steps-container, .event-types-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <span>✨</span>
-                <span>Ethileo Events Pro</span>
+                <img src="assets/logo.png" alt="Ethileo">
             </div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
             <div class="nav-buttons">
-                <a href="https://github.com/iord/ethileo-events-pro" class="btn btn-login" target="_blank">View Code</a>
-                <a href="#features" class="btn btn-signup">Explore Features</a>
+                <a href="#login" class="btn btn-login">Log in</a>
+                <a href="#signup" class="btn btn-signup">Sign up</a>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="assets/hero.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
-            <div class="status-badge">🚀 Now Live on GitHub</div>
-            <h1>Create Unforgettable Events</h1>
-            <p>Professional WordPress event management plugin with digital invitations, guest tracking, QR codes, and instant photo sharing. Built with enterprise-grade architecture.</p>
-            <div class="hero-buttons">
-                <a href="https://github.com/iord/ethileo-events-pro" class="btn btn-white btn-large" target="_blank">View on GitHub →</a>
-                <a href="#features" class="btn btn-outline btn-large">Learn More</a>
+            <h1>Plan. Click. Enjoy!</h1>
+            <p>The modern way to plan unforgettable events!</p>
+        </div>
+    </section>
+
+    <!-- Everything You Need -->
+    <section class="features-intro">
+        <h2 class="section-title">Everything you need</h2>
+        <p class="section-subtitle">Powerful features for perfect events, all in one platform!</p>
+        <div class="features-description">
+            <p><strong>Bring together</strong> your save the dates, e-invites, event website, QR photo sharing, digital guestbook, and guest management <strong>tools into one clean, intuitive platform</strong>, so you can plan your event without juggling five different tools.</p>
+            <p><strong>No spreadsheets. No chasing guests</strong>. Just clear, simple flows from "save the date" to "thank you".</p>
+        </div>
+        <div class="feature-highlights">
+            <div class="feature-highlight">
+                <h4>Qr photo sharing</h4>
+            </div>
+            <div class="feature-highlight">
+                <h4>Guest management</h4>
+            </div>
+            <div class="feature-highlight">
+                <h4>Custom templates</h4>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
-        <div class="features-container">
-            <h2 class="section-title">Everything You Need</h2>
-            <p class="section-subtitle">Built with Clean Architecture & Enterprise Patterns</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">📅</span>
-                    <h3>Event Management</h3>
-                    <p>Create and manage beautiful events with custom invitations, RSVP tracking, and comprehensive guest management system.</p>
+    <!-- Detailed Features -->
+    <section class="detailed-features">
+        <h2 class="section-title" style="text-align: center;">Everything for your event lives here!</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>Custom templates</h4>
+                <p><strong>Choose</strong> a design from our template collection for your save the date, digital invite, website, and QR codes, <strong>customize it</strong> and <strong>style it</strong> your way!</p>
+            </div>
+            <div class="feature-card">
+                <h4>Guest management</h4>
+                <p><strong>Smart and seamless</strong> guest management connected with all templates! Send your creations to your guests, track RSVPs, plus-ones, and preferences in real time, <strong>without manual counting or endless phone calls.</strong></p>
+            </div>
+            <div class="feature-card">
+                <h4>QR photo sharing & guestbook</h4>
+                <p>Guests scan, upload photos and videos, and leave wishes for you to see the next day. Everything is stored <strong>privately</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 Steps -->
+    <section class="steps-section">
+        <h2 class="section-title">3 simple steps to plan your event</h2>
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-title">Plan</div>
+                <div class="step-description">
+                    <p>Create your account, choose your templates (save the date, invitation, custom website, Qr code), add your wedding details!</p>
+                    <p><strong>Everything you need designed your way!</strong></p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">👥</span>
-                    <h3>Guest Lists</h3>
-                    <p>Import, organize, and track your guests. Send invitations and manage RSVPs effortlessly with bulk operations.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-title">Click</div>
+                <div class="step-description">
+                    <p>Share your event with guests, collect RSVPs, track attendance and keep everything organized in one place, effortlessly!</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📱</span>
-                    <h3>QR Codes</h3>
-                    <p>Generate unique QR codes for each guest. Quick check-in and secure access to event features with scan tracking.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📸</span>
-                    <h3>Photo Sharing</h3>
-                    <p>Let guests upload photos instantly. Create a shared gallery of event memories with automatic organization.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">✉️</span>
-                    <h3>Digital Invitations</h3>
-                    <p>Beautiful, customizable e-invites with calendar integration (.ics export) and comprehensive RSVP tracking.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🏗️</span>
-                    <h3>Enterprise Architecture</h3>
-                    <p>Built with Clean Architecture, Domain-Driven Design, and SOLID principles. Scalable and production-ready.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-title">Enjoy</div>
+                <div class="step-description">
+                    <p>Relax and live your big day!</p>
+                    <p>Invites are sent, responses are handled, guests upload photos via QR, and everything is beautifully taken care of!</p>
+                    <p><strong>Just enjoy the moment!</strong></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="tech-stack">
-        <div class="features-container">
-            <h2 class="section-title">Tech Stack</h2>
-            <p class="section-subtitle">Modern Technologies & Best Practices</p>
-            <div class="tech-badges">
-                <span class="tech-badge">WordPress 5.8+</span>
-                <span class="tech-badge">PHP 7.4+</span>
-                <span class="tech-badge">Clean Architecture</span>
-                <span class="tech-badge">Domain-Driven Design</span>
-                <span class="tech-badge">SOLID Principles</span>
-                <span class="tech-badge">Dependency Injection</span>
-                <span class="tech-badge">Repository Pattern</span>
-                <span class="tech-badge">Docker</span>
-                <span class="tech-badge">MariaDB/MySQL</span>
-                <span class="tech-badge">PHPUnit Testing</span>
+    <!-- Event Types -->
+    <section class="event-types">
+        <h2 class="section-title">Every event!</h2>
+        <p class="section-subtitle">starting with weddings expanding to all events</p>
+        <div class="event-types-grid">
+            <div class="event-type-card">
+                <h3>Weddings</h3>
+            </div>
+            <div class="event-type-card">
+                <h3>Birthdays</h3>
+            </div>
+            <div class="event-type-card">
+                <h3>Corporate events</h3>
+            </div>
+            <div class="event-type-card">
+                <h3>Special Occasions</h3>
             </div>
         </div>
     </section>
 
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready to plan the new way?</h2>
+        <p>Join hundreds, creating unforgettable events with a click of a button!</p>
+        <a href="#signup" class="btn btn-cta">Get Started</a>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p><strong>Ethileo Events Pro</strong> - Enterprise-Grade Event Management</p>
-        <p style="margin-top: 1rem; opacity: 0.8;">Open Source • GPL-3.0 License • <a href="https://github.com/iord/ethileo-events-pro" style="color: #667eea;" target="_blank">GitHub</a></p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="assets/logo.png" alt="Ethileo" style="height: 60px; margin-bottom: 1.5rem;">
+                <h5>Keep In Touch</h5>
+                <p>📍 38-2 Hilton Street, California, USA</p>
+                <p>📞 (+01) 123 456 7890</p>
+                <p>✉️ info@ethileo.com</p>
+                <p>🕐 Mon-Fri 9.00am - 6.00pm</p>
+            </div>
+            <div class="footer-section">
+                <h5>Quick Links</h5>
+                <a href="#services">Services</a>
+                <a href="#about">About Us</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact Us</a>
+            </div>
+            <div class="footer-section">
+                <h5>Follow us</h5>
+                <a href="https://instagram.com" target="_blank">📷 Instagram</a>
+                <div style="margin-top: 2rem;">
+                    <a href="#login" class="btn btn-login" style="margin-right: 1rem;">Log in</a>
+                    <a href="#signup" class="btn btn-signup">Sign up</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Events - The Events Specialists All rights reserved.</p>
+        </div>
     </footer>
-
-    <script>
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Animate on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
-    </script>
 </body>
 </html>
